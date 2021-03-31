@@ -1,0 +1,206 @@
+@import "./variables";
+@import  "./mixins.scss";
+@import "./darkTheme";
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    box-sizing: inherit;
+    margin: 0;
+}
+
+*, *::before {
+    box-sizing: inherit;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1.2rem;
+
+    @include media-query(tablet) {
+        padding: 2rem 2.5rem;
+    }
+
+    @include media-query(desktop-sm) {
+        padding: 2rem 5rem;
+    }
+
+    &__title {
+        font-size: 1.1rem;
+        @include text();
+
+        @include media-query(tablet) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__toggle {
+        font-weight: 600;
+        @include text();
+
+        &::before {
+            content: "\f186";
+            display: inline-block;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 300;
+            margin-right: .7rem;
+            transform: rotate(330deg);
+        }
+    }   
+}
+
+.container {
+    min-height: calc(100vh - 5.5rem);
+    padding: 2rem 1.2rem;
+    background-color: $lightModeBg;
+
+    @include media-query(tablet) {
+        padding: 2rem 2.5rem;
+    }
+
+    @include media-query(desktop-sm) {
+        padding: 2rem 5rem;
+    }
+}
+
+.search-filter-container {
+    @include media-query(tablet) {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.search {
+    position: relative;
+
+    @include media-query(tablet) {
+        flex-basis: 450px;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: 1.5rem;
+        transform: translateY(-50%);
+        color: $lightModeInputText;
+    }
+
+    &__field {
+        outline: none;
+        border: none;
+        width: 100%;
+        padding: 1rem 4rem;
+        font-family: $font-family;
+        background-color: $white;
+        border-radius: .4rem;
+        // box-shadow: 0 0 .5rem 0 $lightModeInputText;
+
+        &::placeholder {
+            color: $lightModeInputText;
+        }
+    }
+}
+
+.filter {
+    width: 12.25rem;
+    margin-top: 3rem;
+
+    @include media-query(tablet) {
+        margin-top: 0;
+    }
+
+    &__select {
+        @include text();
+        font-size: .88rem;
+        background-color: $white;
+        padding: 1rem 1.5rem;
+        border-radius: .4rem;
+
+        &::after {
+            content: "\f107";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 600;
+            float: right;
+        }
+    }
+
+    &__options {
+        background-color: $white;
+        padding: 1rem 1.5rem;
+        margin-top: .4rem;
+        border-radius: .4rem;
+        position: absolute;
+        width: 12.25rem;
+
+        &--inactive {
+            display: none;
+        }
+    }
+
+    &__option {
+        @include text();
+        font-size: .88rem;
+
+        &:not(:last-child) {
+            margin-bottom: .6rem;
+        }
+    }
+}
+
+.grid {
+    display: grid;
+    margin: 2rem 0;
+
+    &--countries {
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        grid-gap: 3rem;
+        justify-items: center;
+        padding: 0 2rem;
+
+        @include media-query(tablet) {
+            padding: 0;
+            justify-items: start;
+        }
+    }
+}
+
+.country {
+    $self: &;
+
+    &--card {
+        max-width: 300px;
+
+        #{ $self }__flag {
+            max-width: 100%;
+            border-radius: .4rem .4rem 0 0;
+            display: block;
+        }
+
+        #{ $self }__details {
+            background-color: $white;
+            padding: 1.5rem;
+            border-radius: 0 0 .4rem .4rem;
+        }
+    
+        #{ $self }__name {
+            @include text();
+            margin-bottom: 1rem;
+        }
+    
+        #{ $self }__detail {
+            @include text();
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+    
+        #{ $self }__data {
+            margin: .3rem 0;
+            font-weight: 400;
+        }
+    }
+}

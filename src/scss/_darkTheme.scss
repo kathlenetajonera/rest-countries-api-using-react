@@ -1,0 +1,47 @@
+.darkTheme {
+    .header {
+        background-color: $darkModeElements;
+
+        &__title, &__toggle {
+            color: $white;
+        }
+
+        &__toggle {
+            &::before {
+                font-weight: 800;
+            }
+        }
+    }
+
+    .container {
+        background-color: $darkModeBg;
+    }
+
+    .search__icon, .filter__option {
+        color: $white;
+    }
+
+    .search__field {
+        background-color: $darkModeElements;
+        color: $white;
+
+        &::placeholder {
+            color: $white;
+        }
+    }
+
+    .filter__select, .filter__options {
+        background-color: $darkModeElements;
+        color: $white;
+    }
+
+    .country--card {
+        .country__details {
+            background-color: $darkModeElements;
+        }
+
+        .country__name, .country__detail {
+            color: $white;
+        }
+    }
+}

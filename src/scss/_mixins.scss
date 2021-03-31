@@ -1,0 +1,17 @@
+$mediaBreakpoints: (
+    mobile: 23.4375rem,
+    tablet: 48rem, 
+    desktop-sm: 64rem
+);
+
+@mixin text() {
+    font-family: $font-family;
+    color: $lightModeText;
+    margin: 0;
+}
+
+@mixin media-query($size) {
+    @media (min-width: map-get($mediaBreakpoints, $size)) {
+        @content;
+    }
+}
