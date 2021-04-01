@@ -1,11 +1,11 @@
 import FilterBar from "./FilterBar";
 import SearchBar from "./SearchBar";
 
-const SearchFilterContainer = () => {
+const SearchFilterContainer = ({ setKeyword, searchInputRef, setRegionFilter, regionFilterRef }) => {
     return (
         <div className="search-filter-container">
-            <SearchBar />
-            <FilterBar />
+            <SearchBar setKeyword={ setKeyword } searchInputRef={ searchInputRef } />
+            <FilterBar setRegionFilter={ setRegionFilter } regionFilterRef={ regionFilterRef } />
         </div>
     );
 }

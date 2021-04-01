@@ -15,7 +15,7 @@ export const ThemeProvider = (props) => {
     useEffect(() => {
         const root = document.querySelector("#root");
 
-        theme === "dark" ? root.classList.add("darkTheme") : root.classList.remove("darkTheme")
+        theme === "dark" ? root.classList.add("darkTheme") : root.removeAttribute("class");
     }, [theme])
 
     return (

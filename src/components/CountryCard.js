@@ -1,24 +1,22 @@
-import flag from "../images/germany.jpeg"
-
-const CountryCard = () => {
+const CountryCard = ({ name, flag, population, region, capital }) => {
     return (
         <div className="country country--card">
-            <img className="country__flag" src={flag} alt="" />
+            <img className="country__flag" src={ flag } alt="" />
 
             <div className="country__details">
-                <h2 className="country__name">Germany</h2>
+                <h2 className="country__name">{ name }</h2>
 
                 <div className="country__detail">
                     Population:
-                    <p className="country__data">81,770,900</p>
+                    <p className="country__data">{ population }</p>
                 </div>
                 <div className="country__detail">
                     Region:
-                    <p className="country__data">Europe</p>
+                    <p className="country__data">{ region }</p>
                 </div>
                 <div className="country__detail">
                     Capital:
-                    <p className="country__data">Berlin</p>
+                    <p className="country__data">{ capital }</p>
                 </div>
             </div>
         </div>

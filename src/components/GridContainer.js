@@ -1,6 +1,6 @@
 const GridContainer = (props) => {
     return (
-        <div className="grid grid--countries">
+        <div className="grid grid--four-col">
             {props.children}
         </div>
     );

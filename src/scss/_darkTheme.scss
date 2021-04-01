@@ -1,8 +1,9 @@
 .darkTheme {
     .header {
         background-color: $darkModeElements;
+        box-shadow: 0 0 .5rem 0 $darkModeShadow;
 
-        &__title, &__toggle {
+        &__link, &__toggle {
             color: $white;
         }
 
@@ -24,6 +25,7 @@
     .search__field {
         background-color: $darkModeElements;
         color: $white;
+        box-shadow: 0 0 .5rem 0 $darkModeShadow;
 
         &::placeholder {
             color: $white;
@@ -32,16 +34,33 @@
 
     .filter__select, .filter__options {
         background-color: $darkModeElements;
+        box-shadow: 0 0 .5rem 0 $darkModeShadow;
+        color: $white;
+    }
+
+    .country__name, .country__detail {
         color: $white;
     }
 
     .country--card {
+        box-shadow: 0 0 .5rem 0 $darkModeShadow;
+        
         .country__details {
             background-color: $darkModeElements;
         }
+    }
 
-        .country__name, .country__detail {
-            color: $white;
-        }
+    .button {
+        background-color: $darkModeElements;
+        box-shadow: 0 0 .5rem 0 $darkModeShadow;
+        color: $white;
+    }
+
+    .loading__indicator {
+        background: $lightModeBg;
+    }
+
+    .error {
+        color: $white;
     }
 }

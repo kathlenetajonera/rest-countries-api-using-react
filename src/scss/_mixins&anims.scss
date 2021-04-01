@@ -1,7 +1,8 @@
 $mediaBreakpoints: (
     mobile: 23.4375rem,
     tablet: 48rem, 
-    desktop-sm: 64rem
+    desktop-sm: 64rem,
+    desktop-md: 75rem
 );
 
 @mixin text() {
@@ -13,5 +14,20 @@ $mediaBreakpoints: (
 @mixin media-query($size) {
     @media (min-width: map-get($mediaBreakpoints, $size)) {
         @content;
+    }
+}
+
+@keyframes loading {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: .8;
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
