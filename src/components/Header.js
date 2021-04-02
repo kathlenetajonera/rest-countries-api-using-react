@@ -8,9 +8,9 @@ const Header = () => {
 
     return (
         <header className="header">
-            <h1 className="header__title">
-                <Link to="/" className="header__link">Where in the world?</Link>
-            </h1>
+            <Link to="/" className="header__link">
+                <h1 className="header__title">Where in the world?</h1>
+            </Link>
             <p className="header__toggle" onClick={handleThemeToggle}>Dark Mode</p>
         </header>
     );

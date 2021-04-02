@@ -11,7 +11,7 @@
 .darkTheme .header {
   background-color: #2b3945;
   box-shadow: 0 0 0.5rem 0 #1e2b34; }
-  .darkTheme .header__link, .darkTheme .header__toggle {
+  .darkTheme .header__title, .darkTheme .header__toggle {
     color: white; }
   .darkTheme .header__toggle::before {
     font-weight: 800; }
@@ -77,16 +77,16 @@ body {
     .header {
       padding: 2rem 5rem; } }
   .header__title {
+    font-family: "Nunito Sans", sans-serif;
+    color: #111517;
+    margin: 0;
     font-size: 1.1rem;
     margin: 0; }
     @media (min-width: 48rem) {
       .header__title {
         font-size: 1.5rem; } }
   .header__link {
-    text-decoration: none;
-    font-family: "Nunito Sans", sans-serif;
-    color: #111517;
-    margin: 0; }
+    text-decoration: none; }
   .header__toggle {
     font-weight: 600;
     cursor: pointer;
@@ -302,4 +302,4 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white; }
+  color: #111517; }

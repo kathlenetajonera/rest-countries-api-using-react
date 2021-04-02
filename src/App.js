@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Container from './components/Container';
 import { ThemeProvider } from './context/ThemeContext';
 import CountryInfo from './components/CountryInfo';
+import { AllCountriesProvider } from './context/AllCountriesContext';
+import { CountryProvider } from './context/CountryContext';
 
 function App() {
   return (
@@ -11,17 +13,21 @@ function App() {
       <Router>
         <ThemeProvider>
           <Header />
+            <AllCountriesProvider>
+              
+            <Switch>
+              <Route exact path="/">
+                <Container />
+              </Route>
 
-          <Switch>
-            <Route exact path="/">
-              <Container />
-            </Route>
+              <Route exact path="/country/:name">
+                <CountryProvider>
+                  <CountryInfo />
+                </CountryProvider>
+              </Route>
+            </Switch>
 
-            <Route exact path="/test">
-              <CountryInfo />
-            </Route>
-          </Switch>
-
+          </AllCountriesProvider>
         </ThemeProvider>
       </Router>
 

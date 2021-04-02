@@ -32,6 +32,7 @@ body {
     }
 
     &__title {
+        @include text();
         font-size: 1.1rem;
         margin: 0;
 
@@ -42,7 +43,6 @@ body {
 
     &__link {
         text-decoration: none;
-        @include text();
     }
 
     &__toggle {
@@ -319,5 +319,5 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: $white;
+    color: $lightModeText;
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useFetch = (url) => {
-    const [allCountries, setAllCountries] = useState(null);
+    const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -16,7 +16,7 @@ const useFetch = (url) => {
 
                 const data = await response.json()
 
-                setAllCountries(data);
+                setData(data);
                 setIsLoading(false);
             } catch (err) {
                 setError(err.message);
@@ -27,7 +27,7 @@ const useFetch = (url) => {
         fetchData();
     }, [url])
 
-    return [allCountries, isLoading, error]
+    return [data, isLoading, error]
 }
  
 export default useFetch;
