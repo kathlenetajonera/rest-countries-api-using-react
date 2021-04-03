@@ -2,7 +2,8 @@ $mediaBreakpoints: (
     mobile: 23.4375rem,
     tablet: 48rem, 
     desktop-sm: 64rem,
-    desktop-md: 75rem
+    desktop-md: 75rem,
+    desktop-lg: 81.25rem
 );
 
 @mixin text() {

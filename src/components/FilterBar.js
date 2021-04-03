@@ -26,7 +26,7 @@ const FilterBar = ({ setRegionFilter, regionFilterRef }) => {
         document.addEventListener("click", closeFilterDropdown)
 
         return () => document.removeEventListener("click", closeFilterDropdown);
-    })
+    }, [isFilterOpen])
 
     return (
         <div className="filter">

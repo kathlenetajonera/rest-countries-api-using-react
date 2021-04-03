@@ -218,6 +218,9 @@ body {
   @media (min-width: 75rem) {
     .country__details {
       flex-basis: 240px; } }
+  @media (min-width: 81.25rem) {
+    .country__details {
+      flex-basis: 270px; } }
 
 .country__detail {
   font-family: "Nunito Sans", sans-serif;
@@ -264,7 +267,7 @@ body {
   background-color: white;
   box-shadow: 0 0 0.5rem 0 rgba(128, 128, 128, 0.171);
   padding: .5rem 1.5rem;
-  margin-right: .5rem;
+  margin: 0 .5rem .5rem 0;
   border-radius: .4rem;
   cursor: pointer; }
   .button--back::before {
