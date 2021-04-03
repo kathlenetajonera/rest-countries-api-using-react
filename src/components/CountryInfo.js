@@ -17,14 +17,14 @@ const CountryInfo = () => {
     useEffect(() => {
         setBorderCountries([])
 
-        if (matchedCountry !== null && allCountries !== null) {
+        if (matchedCountry && allCountries) {
             matchedCountry[0].borders.forEach(border => {
                 allCountries.forEach(country => {
                     if (border === country.alpha3Code) {
                         setBorderCountries(prev => prev.concat(country.name))
                     }
                 })
-            })            
+            })
         }
 
     }, [allCountries, matchedCountry])

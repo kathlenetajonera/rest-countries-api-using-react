@@ -12,10 +12,26 @@ $mediaBreakpoints: (
     margin: 0;
 }
 
+@mixin flexbox($jc: unset, $ai: unset) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin abs-top-left($top, $left) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+
 @mixin media-query($size) {
     @media (min-width: map-get($mediaBreakpoints, $size)) {
         @content;
     }
+}
+
+@mixin transition($prop) {
+    transition: $prop .2s ease;
 }
 
 @keyframes loading {

@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import useFetch from "../hooks/useFetch";
-// import useSearchFilter from "../hooks/useSearchFilter";
 import CountryCard from "./CountryCard";
 import GridContainer from "./GridContainer";
 import SearchFilterContainer from "./SearchFilterContainer";
@@ -12,16 +11,19 @@ const Container = ({ keyword, setKeyword, regionFilter, setRegionFilter }) => {
     const [listToRender, setListToRender] = useState(null);
     const regionFilterRef = useRef(); 
     const searchInputRef = useRef();
-    // const [ setKeyword, searchInputRef, setRegionFilter, regionFilterRef] = useSearchFilter(allCountries, setListToRender);
 
     useEffect(() => {
-        if (allCountries !== null && keyword === null && regionFilter === null) {
+        const keywordAndFilterAreNull = keyword === null && regionFilter === null;
+
+        //render all Countries if both search keyword & filter states are null
+        if (allCountries && keywordAndFilterAreNull) {
             setListToRender(allCountries);
         }
+
     }, [allCountries, keyword, regionFilter])
 
     useEffect(() => {
-        if (keyword !== null && allCountries !== null) {
+        if (keyword && allCountries) {
             const filteredCountries = [];
 
             allCountries.forEach(country => {
@@ -33,25 +35,28 @@ const Container = ({ keyword, setKeyword, regionFilter, setRegionFilter }) => {
                 }
             });
 
+            searchInputRef.current.value = keyword;
             setListToRender(filteredCountries);
             setRegionFilter(null); //resets the region filter state when searching for a country
         } else {
+            if (keyword === "") setKeyword(null);
+            
             searchInputRef.current.value = "";
         }
 
-    }, [keyword, allCountries, setListToRender, setRegionFilter, searchInputRef])
+    }, [keyword, allCountries, setRegionFilter, setKeyword, searchInputRef])
 
     useEffect(() => {
-        if (regionFilter !== null && allCountries !== null) {
+        if (regionFilter && allCountries) {
             const filteredCountries = allCountries.filter(country => country.region.toLowerCase() === regionFilter.toLowerCase());
 
+            regionFilterRef.current.textContent = regionFilter;
             setListToRender(filteredCountries);
             setKeyword(null) //resets the search bar state when filtered by region
         } else {
             regionFilterRef.current.textContent = "Filter by Region"
         }
-
-    }, [regionFilter, allCountries, setListToRender, setKeyword, regionFilterRef])
+    }, [regionFilter, allCountries, setKeyword, regionFilterRef])
 
     return (
         <div className="container">
@@ -74,7 +79,6 @@ const Container = ({ keyword, setKeyword, regionFilter, setRegionFilter }) => {
                         region={country.region}
                         capital={country.capital}
                         key={country.alpha3Code}
-                        allCountries={allCountries}
                     />
                 )) }
             </GridContainer>

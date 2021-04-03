@@ -16,9 +16,8 @@ body {
 }
 
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flexbox(space-between, center);
+    @include transition(background-color);
     padding: 2rem 1.2rem;
     box-shadow: 0 0 .5rem 0 $lightModeShadow;
     position: relative;
@@ -46,9 +45,9 @@ body {
     }
 
     &__toggle {
+        @include text();
         font-weight: 600;
         cursor: pointer;
-        @include text();
 
         &::before {
             content: "\f186";
@@ -66,6 +65,7 @@ body {
     padding: 2rem 1.2rem;
     background-color: $lightModeBg;
     position: relative;
+    @include transition(background-color);
 
     @include media-query(tablet) {
         padding: 2rem 2.5rem;
@@ -78,8 +78,7 @@ body {
 
 .search-filter-container {
     @include media-query(tablet) {
-        display: flex;
-        justify-content: space-between;
+        @include flexbox(space-between, center)
     }
 }
 
@@ -87,13 +86,11 @@ body {
     position: relative;
 
     @include media-query(tablet) {
-        flex-basis: 450px;
+        flex-basis: 28.125rem;
     }
 
     &__icon {
-        position: absolute;
-        top: 50%;
-        left: 1.5rem;
+        @include abs-top-left(50%, 1.5rem);
         transform: translateY(-50%);
         color: $lightModeInputText;
     }
@@ -107,6 +104,7 @@ body {
         background-color: $white;
         border-radius: .4rem;
         box-shadow: 0 0 .5rem 0 $lightModeShadow;
+        @include transition(background-color);
 
         &::placeholder {
             color: $lightModeInputText;
@@ -130,6 +128,7 @@ body {
         border-radius: .4rem;
         box-shadow: 0 0 .5rem 0 $lightModeShadow;
         cursor: pointer;
+        @include transition(background-color);
 
         &::after {
             content: "\f107";
@@ -170,7 +169,7 @@ body {
     margin: 2rem 0;
 
     &--four-col {
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(14.375rem, 1fr));
         justify-items: center;
         padding: 0 2rem;
 
@@ -208,23 +207,22 @@ body {
         margin-bottom: 2rem;
 
         @include media-query(tablet) {
-            flex-basis: 200px;
+            flex-basis: 12.5rem;
         }
 
         @include media-query(desktop-md) {
-            flex-basis: 240px;
+            flex-basis: 15rem;
         }
 
         @include media-query(desktop-lg) {
-            flex-basis: 270px;
+            flex-basis: 16.875rem;
         }
     }
 
     &__detail {
         @include text();
+        @include flexbox(flex-start, center);
         font-weight: 600;
-        display: flex;
-        align-items: center;
 
         &--border {
             margin: 0 1rem 0 0;
@@ -241,7 +239,7 @@ body {
     }
 
     &--card {
-        max-width: 300px;
+        max-width: 18.75rem;
         box-shadow: 0 0 .5rem 0 $lightModeShadow;
 
         #{ $self }__flag {
@@ -288,16 +286,14 @@ body {
 }
 
 .loading {
-    display: flex;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    @include abs-top-left(50%, 50%);
     transform: translate(-50%, -50%);
+    display: flex;
 
     &__indicator {
         display: block;
-        width: 10px;
-        height: 10px;
+        width: 0.625rem;
+        height: 0.625rem;
         background: $darkModeElements;
         margin: 0 .3rem;
         border-radius: 50%;
@@ -319,9 +315,7 @@ body {
 
 .error {
     @include text();
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    @include abs-top-left(50%, 50%);
     transform: translate(-50%, -50%);
     color: $lightModeText;
 }
