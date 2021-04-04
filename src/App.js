@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Container from './components/Container';
 import CountryInfo from './components/CountryInfo';
 import { AllCountriesProvider } from './context/AllCountriesContext';
+import Error404 from './components/Error404';
 
 function App() {
   const [keyword, setKeyword] = useState(null);
@@ -19,6 +20,7 @@ function App() {
             setKeyword={setKeyword}
             setRegionFilter={setRegionFilter}
           />  
+          <AllCountriesProvider>
           <Switch>
             <Route exact path="/">
               <Container 
@@ -30,11 +32,14 @@ function App() {
             </Route>
             
             <Route exact path="/country/:name">
-              <AllCountriesProvider>
-                <CountryInfo />
-              </AllCountriesProvider>
+              <CountryInfo />
+            </Route>
+
+            <Route path="*">
+              <Error404 />
             </Route>
           </Switch>
+        </AllCountriesProvider>
         </ThemeProvider>
       </Router>
 

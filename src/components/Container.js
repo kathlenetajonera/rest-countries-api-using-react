@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import useFetch from "../hooks/useFetch";
 import CountryCard from "./CountryCard";
 import GridContainer from "./GridContainer";
@@ -73,12 +73,12 @@ const Container = ({ keyword, setKeyword, regionFilter, setRegionFilter }) => {
             <GridContainer type="four-col">
                 { listToRender && listToRender.map(country => (
                     <CountryCard 
-                        name={country.name}
-                        flag={country.flag}
-                        population={country.population}
-                        region={country.region}
-                        capital={country.capital}
-                        key={country.alpha3Code}
+                    name={country.name}
+                    flag={country.flag}
+                    population={country.population}
+                    region={country.region}
+                    capital={country.capital}
+                    key={country.alpha3Code}
                     />
                 )) }
             </GridContainer>

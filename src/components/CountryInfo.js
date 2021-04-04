@@ -13,6 +13,7 @@ const CountryInfo = () => {
     const allCountries = useContext(AllCountriesContext);
     const { data: matchedCountry, isLoading, error } = useFetch(`https://restcountries.eu/rest/v2/name/${name}?fullText=true`);
     const [borderCountries, setBorderCountries] = useState([]);
+    const numberFormat = new Intl.NumberFormat();
 
     useEffect(() => {
         setBorderCountries([])
@@ -57,7 +58,7 @@ const CountryInfo = () => {
                                     </div>
                                     <div className="country__detail">
                                         Population:
-                                        <p className="country__data">{ matchedCountry[0].population }</p>
+                                        <p className="country__data">{ numberFormat.format(matchedCountry[0].population) }</p>
                                     </div>
                                     <div className="country__detail">
                                         Region:
